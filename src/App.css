@@ -7,6 +7,127 @@
   pointer-events: none;
 }
 
+p{
+  margin-bottom: .5rem;
+}
+
+#task_description_container {
+  display: flex;
+  align-items: start;
+  border: 1px solid lightgray;
+  padding: 5px 10px 15px 10px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.container{
+  margin-top: 10px;
+}
+
+#div_content {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  margin-right: 5px;
+  resize: none;
+  height: fit-content;
+  overflow: hidden;
+  text-align: left;
+}
+
+#buttons_container {
+  display: flex;
+  align-content: space-between;
+  margin-top: "10px";
+  background-color: #FAFBFB;
+  padding: 5px;
+  border-radius: 0px 0px 5px 5px;
+}
+#buttons_container button{
+  margin-right: 5px;
+}
+
+#left_buttons{
+  display: flex;
+  flex: 1;
+}
+
+
+#right_buttons button{
+  padding: 0px 15px;
+}
+
+#actions_buttons{
+  margin-left: 10px;
+}
+
+#actions_buttons button{
+  border-color: #d1dbe3;
+}
+
+#div_content{
+  width: 100%;
+  height: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#taskItem{
+  margin-bottom: 10px;
+}
+
+#taskItem input{
+  margin-right: 5px;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+#taskItem span{
+  border-radius: 10px;
+  margin: 4px;
+  padding: 0 10px 0 10px;
+  cursor: pointer;
+}
+
+#taskItem .blue{
+  background-color: rgba(110, 110, 246, 0.536);
+}
+
+#taskItem .green{
+  background-color: rgba(107, 231, 75, 0.435);
+}
+
+#taskItem .red{
+  background-color: rgba(247, 151, 151, 0.485);
+}
+
+#taskItem .purple{
+  background-color:rgba(228, 115, 228, 0.534);
+}
+
+[contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  display: block;
+  color: #aaa;
+  font-size: .875em;
+}
+
+
+#task_form_container{
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 8px;
+  margin-bottom: 16px;
+}
+
+#task_list{
+  white-space: nowrap;
+  overflow-x: auto;
+  padding: 5px;
+}
+
+#open_button{
+  background-color: #F1F5F7;
+  border: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -32,6 +153,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
