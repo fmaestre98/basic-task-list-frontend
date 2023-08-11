@@ -101,7 +101,7 @@ p{
 }
 
 #taskItem .purple{
-  background-color:rgba(228, 115, 228, 0.534);
+  background-color:rgba(243, 243, 135, 0.534);
 }
 
 [contenteditable=true]:empty:before {
@@ -123,7 +123,7 @@ p{
   padding: 5px;
 }
 
-#open_button{
+#open_button, #cancel_button{
   background-color: #F1F5F7;
   border: none;
 }

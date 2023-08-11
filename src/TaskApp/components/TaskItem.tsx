@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TaskModel from "../../models/TaskModel";
 
-export const TaskItem: React.FC<{ task: TaskModel, loadTasks: Function }> = (props) => {
+export const TaskItem: React.FC<{ task: TaskModel}> = (props) => {
   const [error, setError] = useState(null);
   const [checked, setChecked] = useState(props.task.done);
   const [description, setDescription] = useState(props.task.description);
@@ -32,22 +32,6 @@ export const TaskItem: React.FC<{ task: TaskModel, loadTasks: Function }> = (pro
     });
 
     setDescription(newDescription);
-  };
-
-  const deleteTask = (evt: any) => {
-    const url = "http://localhost:8080/api/tasks/" + props.task.id;
-
-    fetch(url, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then(() => {
-      props.loadTasks();
-    }).catch((error) => {
-      setError(error.message);
-    });
-
   };
 
   return (

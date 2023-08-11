@@ -1,13 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import './TaskList/TaskList';
-import { TaskList } from './TaskList/TaskList';
+import { TaskApp } from './TaskApp/TaskApp';
 
 function App() {
   return (
     <div className="App">
-     <TaskList/>    
+     <TaskApp/>    
     </div>
   );
 }

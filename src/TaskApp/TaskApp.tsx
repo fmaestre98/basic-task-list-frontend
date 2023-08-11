@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import TaskModel from "../models/TaskModel";
-import { TaskItem } from "./components/TaskItem";
 import { TaskForm } from "./components/TaskForm";
+import { TaskList } from "./components/TaskList";
 
-export const TaskList = () => {
+export const TaskApp = () => {
 
     const [tasks, setTasks] = useState<TaskModel[]>([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -75,12 +75,7 @@ export const TaskList = () => {
     return (
         <div className="container" >
             <TaskForm newTask={loadTasks} />
-            <div id="task_list">
-                {tasks.map(task => (
-                    <TaskItem task={task} loadTasks={loadTasks} key={task.id} />
-                ))}
-            </div>
-
+            <TaskList tasks={tasks} />
         </div>
     );
 
