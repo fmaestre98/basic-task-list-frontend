@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import TaskModel from '../models/TaskModel';
 import { TaskList } from '../TaskApp/components/TaskList';

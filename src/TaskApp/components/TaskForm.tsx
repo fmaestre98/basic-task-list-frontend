@@ -96,7 +96,7 @@ export const TaskForm = (props: { newTask: Function }) => {
 
     if (!showForm) {
         return (
-            <div className="d-flex p-2" onClick={() => setShowForm(true)} data-testid="new_task">
+            <div className="d-flex p-2" onClick={() => setShowForm(true)} data-testid="new_task" id="new_task">
                 <p><i className="bi bi-plus-square text-primary"></i> <small className="text-muted">Type to add new task</small></p>
             </div>
         );
@@ -131,7 +131,7 @@ export const TaskForm = (props: { newTask: Function }) => {
 
                     <div id="right_buttons" className="d-grid gap-2 d-md-flex">
                         <button id="cancel_button" type="button" className="btn btn-sm" onClick={handleCancel} >Cancel</button>
-                        <button type="button" className="btn btn-primary btn-sm" onClick={handleAddEvent} data-testid="ok_button">{invalidDescription() ? "Ok" : "Add"}</button>
+                        <button type="button" className="btn btn-primary btn-sm" onClick={handleAddEvent} data-testid="ok_button" id="ok_button">{invalidDescription() ? "Ok" : "Add"}</button>
 
                     </div>
 

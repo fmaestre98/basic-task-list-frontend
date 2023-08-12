@@ -5,7 +5,7 @@ import { TaskItem } from "./TaskItem";
 export const TaskList: React.FC<{ tasks: TaskModel[] }> = (props) => {
 
     return (
-        <div id="task_list">
+        <div id="task_list" data-testid="task_list">
             {props.tasks.map(task => (
                 <TaskItem task={task} key={task.id} />
             ))}

@@ -73,7 +73,7 @@ export const TaskApp = () => {
     }
 
     return (
-        <div className="container" >
+        <div className="container" data-testid="app">
             <TaskForm newTask={loadTasks} />
             <TaskList tasks={tasks} />
         </div>
