@@ -48,7 +48,8 @@ export const TaskForm = (props: { newTask: Function }) => {
     };
 
     const invalidDescription = () => {
-        return taskDescription === "" || taskDescription === "<br>";
+        return taskDescription === "" || taskDescription === "<br>" || taskDescription.trim() === "" || taskDescription === "<br />";
+
     };
 
     const handleAddEvent = () => {
@@ -95,7 +96,7 @@ export const TaskForm = (props: { newTask: Function }) => {
 
     if (!showForm) {
         return (
-            <div className="d-flex p-2" onClick={() => setShowForm(true)}>
+            <div className="d-flex p-2" onClick={() => setShowForm(true)} data-testid="new_task">
                 <p><i className="bi bi-plus-square text-primary"></i> <small className="text-muted">Type to add new task</small></p>
             </div>
         );
@@ -112,12 +113,13 @@ export const TaskForm = (props: { newTask: Function }) => {
                     onKeyDownCapture={keyDown}
                     id="div_content"
                     placeholder={"Type to add new task"}
+                    data-testid="div_content_editable"
                 />
                 <i className="bi bi-person-circle text-primary"></i>
             </div>
             <div>
                 <div id="buttons_container" className="d-none d-md-flex">
-                    <div id="left_buttons">
+                    <div id="left_buttons" data-testid="actions_buttons">
                         <button type="button" id="open_button" disabled={invalidDescription()} className="btn btn-sm"><i className="bi bi-arrows-angle-expand"></i> Open</button>
                         <div id="actions_buttons">
                             <button type="button" disabled={invalidDescription()} className="btn btn-outline-secondary btn-sm"><i className="bi bi-calendar"></i> Today</button>
@@ -128,8 +130,8 @@ export const TaskForm = (props: { newTask: Function }) => {
                     </div>
 
                     <div id="right_buttons" className="d-grid gap-2 d-md-flex">
-                        <button id="cancel_button" type="button" className="btn btn-sm" onClick={handleCancel}>Cancel</button>
-                        <button type="button" className="btn btn-primary btn-sm" onClick={handleAddEvent}>{invalidDescription() ? "Ok" : "Add"}</button>
+                        <button id="cancel_button" type="button" className="btn btn-sm" onClick={handleCancel} >Cancel</button>
+                        <button type="button" className="btn btn-primary btn-sm" onClick={handleAddEvent} data-testid="ok_button">{invalidDescription() ? "Ok" : "Add"}</button>
 
                     </div>
 

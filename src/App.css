@@ -76,7 +76,7 @@ p{
 }
 
 #taskItem input{
-  margin-right: 5px;
+  margin: 0px 10px 0px 5px;
   min-width: 20px;
   min-height: 20px;
 }

@@ -35,7 +35,7 @@ export const TaskItem: React.FC<{ task: TaskModel}> = (props) => {
   };
 
   return (
-    <div className="form-check d-flex" id="taskItem">
+    <div className="form-check d-flex" id="taskItem" data-testid="task">
       <input className="form-check-input" type="checkbox" checked={checked} name={props.task.id.toString()} id={props.task.id.toString()} onChange={changeTaskStatus} />
       <label className="form-check-label" htmlFor={props.task.id.toString()} dangerouslySetInnerHTML={{ __html: description }}></label>
       {error && <div><p className="text-danger">error</p></div>}
