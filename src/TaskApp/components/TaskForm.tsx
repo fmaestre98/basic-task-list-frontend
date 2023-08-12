@@ -58,7 +58,7 @@ export const TaskForm = (props: { newTask: Function }) => {
             setShowForm(false);
         } else {
 
-            const url = "http://localhost:8080/api/tasks";
+            const url = "https://basic-task-list.onrender.com/api/tasks";
 
             fetch(url, {
                 method: "POST",

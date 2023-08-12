@@ -14,7 +14,7 @@ export const TaskItem: React.FC<{ task: TaskModel}> = (props) => {
     } else {
       newDescription = description.replace("<del>", "").replace("</del>", "");
     }
-    const url = "http://localhost:8080/api/tasks";
+    const url = "https://basic-task-list.onrender.com/api/tasks";
 
     fetch(url, {
       method: "POST",
