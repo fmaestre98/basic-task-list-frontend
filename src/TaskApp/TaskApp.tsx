@@ -15,7 +15,7 @@ export const TaskApp = () => {
     }, []);
 
     const fetchTasks = async () => {
-        const baseUrl = "http://localhost:8080/api/tasks";
+        const baseUrl = "https://basic-task-list.onrender.com/api/tasks";
 
         const url = baseUrl + "?page=0&size=9&sort=id,desc";
 
