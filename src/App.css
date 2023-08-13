@@ -73,7 +73,10 @@ p{
 
 #taskItem{
   margin-bottom: 10px;
+  padding-left: 0em !important;
+  align-items: end;
 }
+
 
 #taskItem input{
   margin: 0px 10px 0px 5px;
