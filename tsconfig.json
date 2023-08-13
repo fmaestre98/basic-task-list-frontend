@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "cypress/e2e/TaskAppe2e.cy.js"  ]
 }
