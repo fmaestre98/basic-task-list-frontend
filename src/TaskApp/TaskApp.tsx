@@ -6,7 +6,7 @@ import { TaskList } from "./components/TaskList";
 export const TaskApp = () => {
 
     const [tasks, setTasks] = useState<TaskModel[]>([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -15,7 +15,7 @@ export const TaskApp = () => {
     }, []);
 
     const fetchTasks = async () => {
-        const baseUrl = "https://basic-task-list.onrender.com/api/tasks";
+        const baseUrl = "http://localhost:8080/api/tasks";
 
         const url = baseUrl + "?page=0&size=9&sort=id,desc";
 
