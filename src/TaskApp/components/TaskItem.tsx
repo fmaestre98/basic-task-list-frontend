@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TaskModel from "../../models/TaskModel";
 
-export const TaskItem: React.FC<{ task: TaskModel}> = (props) => {
+export const TaskItem: React.FC<{ task: TaskModel }> = (props) => {
   const [error, setError] = useState(null);
   const [checked, setChecked] = useState(props.task.done);
   const [description, setDescription] = useState(props.task.description);
@@ -38,7 +38,7 @@ export const TaskItem: React.FC<{ task: TaskModel}> = (props) => {
     <div className="form-check d-flex" id="taskItem" data-testid="task">
       <input className="form-check-input" type="checkbox" checked={checked} name={props.task.id.toString()} id={props.task.id.toString()} onChange={changeTaskStatus} />
       <label className="form-check-label" htmlFor={props.task.id.toString()} dangerouslySetInnerHTML={{ __html: description }}></label>
-      {error && <div><p className="text-danger">error</p></div>}
+      {error && <div><p className="text-danger">{error}</p></div>}
     </div>
 
   );

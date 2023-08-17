@@ -6,6 +6,7 @@ export const TaskForm = (props: { newTask: Function }) => {
     const [showForm, setShowForm] = useState(false);
     const [taskDescription, setTaskDescription] = useState("");
     const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const onContentChange = React.useCallback((evt: any) => {
@@ -57,7 +58,7 @@ export const TaskForm = (props: { newTask: Function }) => {
             setTaskDescription("");
             setShowForm(false);
         } else {
-
+            setIsLoading(true);
             const url = "https://basic-task-list.onrender.com/api/tasks";
 
             fetch(url, {
@@ -75,10 +76,13 @@ export const TaskForm = (props: { newTask: Function }) => {
                     props.newTask();
                     setShowForm(false);
                     setTaskDescription("");
+                    setIsLoading(false);
                 })
                 .catch((error) => {
+                    setIsLoading(false);
                     setError(error.message);
                 });
+
 
         }
     };
@@ -131,7 +135,13 @@ export const TaskForm = (props: { newTask: Function }) => {
 
                     <div id="right_buttons" className="d-grid gap-2 d-md-flex">
                         <button id="cancel_button" type="button" className="btn btn-sm" onClick={handleCancel} >Cancel</button>
-                        <button type="button" className="btn btn-primary btn-sm" onClick={handleAddEvent} data-testid="ok_button" id="ok_button">{invalidDescription() ? "Ok" : "Add"}</button>
+                        <button type="button" disabled={isLoading} className="btn btn-primary btn-sm" onClick={handleAddEvent} data-testid="ok_button" id="ok_button">
+                            {isLoading ?
+                                <div className="spinner-border spinner-border-sm" role="status" aria-hidden="true">
+                                    <span className="visually-hidden">Loading...</span>
+                                </div>
+                                : invalidDescription() ? "Ok" : "Add"}
+                        </button>
 
                     </div>
 
@@ -150,13 +160,21 @@ export const TaskForm = (props: { newTask: Function }) => {
                     </div>
 
                     <div id="right_buttons" className="d-grid gap-2 d-md-flex">
-                        <button type="button" className="btn btn-primary btn-sm" onClick={handleAddEvent}>{invalidDescription() ? <i className="bi bi-x-lg"></i> : <i className="bi bi-plus-lg"></i>}</button>
+                        <button type="button" disabled={isLoading} className="btn btn-primary btn-sm" onClick={handleAddEvent}>{
+                            isLoading ?
+                                <div className="spinner-border spinner-border-sm" role="status" aria-hidden="true">
+                                    < span className="visually-hidden">Loading...</span>
+                                </div>
+                                : invalidDescription() ?
+                                    <i className="bi bi-x-lg"></i> :
+                                    <i className="bi bi-plus-lg"></i>}
+                        </button>
 
                     </div>
 
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 
 }

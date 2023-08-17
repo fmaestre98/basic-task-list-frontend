@@ -51,16 +51,6 @@ export const TaskApp = () => {
         });
     }
 
-    if (isLoading) {
-        return (
-            <div className="container m-5 d-flex justify-content-center">
-                <div className="spinner-border" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </div>
-            </div>
-        );
-    }
-
     if (error) {
         return (
             <div className="container m-5">
@@ -75,7 +65,16 @@ export const TaskApp = () => {
     return (
         <div className="container" data-testid="app">
             <TaskForm newTask={loadTasks} />
-            <TaskList tasks={tasks} />
+            {isLoading ?
+                <div className="container m-5 d-flex justify-content-center">
+                    <div className="spinner-border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                :
+                <TaskList tasks={tasks} />
+            }
+
         </div>
     );
 
